@@ -2,6 +2,7 @@ FROM alpine:latest
 Maintainer Itamar Lavender <itamar.lavender@gmail.com>
 
 ARG SG_CLIENT_ID
+ENV SG_CLIENT_ID=$SG_CLIENT_ID
 ARG SG_SECRET_KEY
 
 RUN mkdir -p /usr/local/demo-app
