@@ -14,4 +14,4 @@ RUN chmod +x /usr/local/demo-app/sourceguard-cli
 RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
 
 RUN echo "sourceguard client: $SG_CLIENT_ID"
-RUN /usr/local/demo-app/sourceguard-cli -src /usr/local/demo-app/
+RUN export SG_CLIENT_ID=$SG_CLIENT_ID && export SG_SECRET_KEY=$SG_SECRET_KEY && /usr/local/demo-app/sourceguard-cli -src /usr/local/demo-app/
