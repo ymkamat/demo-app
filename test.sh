@@ -1,1 +1,1 @@
-wget http://wicar.org/
+wget https://textspeier.de
