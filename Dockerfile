@@ -1,6 +1,11 @@
 FROM alpine:latest
 Maintainer Itamar Lavender <itamar.lavender@gmail.com>
 
+ARG SG_CLIENT_ID
+ENV SG_CLIENT_ID=$SG_CLIENT_ID
+ARG SG_SECRET_KEY
+ENV SG_SECRET_KEY=$SG_SECRET_KEY
+
 RUN mkdir -p /usr/local/demo-app
 ADD . /usr/local/demo-app/
 RUN chmod +x /usr/local/demo-app/sourceguard-cli
