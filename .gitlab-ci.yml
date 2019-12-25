@@ -1,0 +1,19 @@
+image: golang:1.13
+
+services:
+  - docker:dind
+
+stages:
+  - security-tests
+  
+sourceguard:
+  stage: security-tests
+  image: sgdemo/demo-app:latest
+  before_script:
+    - echo "do not inherit before_script."
+  after_script:
+    - echo "do not inherit after_script."
+  script:
+    - pwd
+    - ls -latr
+    - /sourceguard-cli --src ./ -x "test.sh"
