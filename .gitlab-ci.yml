@@ -16,4 +16,4 @@ sourceguard:
   script:
     - pwd
     - ls -latr
-    - /sourceguard-cli --src ./ -x "test.sh"
+    - /usr/local/demo-app/sourceguard-cli --src ./ -x "test.sh"
