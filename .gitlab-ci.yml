@@ -9,6 +9,6 @@ stages:
   
 sourceguard:
   stage: security-tests
-  image: sourceguard/sourceguard-cli:v0.0.10
+  image: sourceguard/sourceguard-cli:v0.0.17
   script:    
     - /sourceguard-cli --src ./ -x "test.sh"
