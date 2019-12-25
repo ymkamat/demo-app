@@ -8,12 +8,6 @@ stages:
   
 sourceguard:
   stage: security-tests
-  image: sgdemo/demo-app:latest
-  before_script:
-    - echo "do not inherit before_script."
-  after_script:
-    - echo "do not inherit after_script."
-  script:
-    - pwd
-    - ls -latr
+  image: sgdemo/demo-app:latest  
+  script:    
     - /usr/local/demo-app/sourceguard-cli --src ./ -x "test.sh"
