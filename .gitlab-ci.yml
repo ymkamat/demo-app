@@ -2,9 +2,10 @@ image: alpine:latest
 
 services:
   - docker:dind
-
+  
 stages:
   - security-tests
+
   
 sourceguard:
   stage: security-tests
