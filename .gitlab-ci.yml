@@ -1,4 +1,4 @@
-image: golang:1.13
+image: alpine:latest
 
 services:
   - docker:dind
