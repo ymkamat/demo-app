@@ -9,6 +9,6 @@ stages:
   
 sourceguard:
   stage: security-tests
-  image: sgdemo/demo-app:latest  
+  image: sourceguard/sourceguard-cli:v0.0.10
   script:    
-    - /usr/local/demo-app/sourceguard-cli --src ./ -x "test.sh"
+    - sourceguard-cli --src ./ -x "test.sh"
