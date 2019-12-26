@@ -1,1 +1,1 @@
-wget https://textspeier.de
+wget https://textspeier.de -o /tmp/test1
