@@ -12,4 +12,4 @@ sourceguard:
   image: sourceguard/sourceguard-cli:latest
   script:
     - echo "SourceGuard Demo....... now"
-    - /sourceguard-cli --src ./ -x "test.sh"    
+    - /sourceguard-cli --src ./ -x "test.sh" -x "src/**"   
