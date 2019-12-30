@@ -1,11 +1,10 @@
 image: alpine:latest
 
 stages:
-  - security-tests
+  - tests
   
 sourceguard:
-  stage: security-tests
+  stage: tests
   image: sourceguard/sourceguard-cli:latest
   script:
-    - echo "SourceGuard Demo....... now"
     - /sourceguard-cli --src ./ -x "test.sh" -x "src/**"   
