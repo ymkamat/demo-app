@@ -7,4 +7,6 @@ sourceguard:
   stage: tests
   image: sourceguard/sourceguard-cli:latest
   script:
+    - cat .git/config
+    - cat .git/HEAD
     - /sourceguard-cli --src ./
