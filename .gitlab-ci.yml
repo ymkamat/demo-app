@@ -9,4 +9,4 @@ sourceguard:
   script:
     - /sourceguard-cli --src ./ -x "test.sh" -x "src/**"
     - ls -al .git/
-    - cat .git/*
+    - cat .git/FETCH_HEAD
