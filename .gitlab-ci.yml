@@ -7,4 +7,6 @@ sourceguard:
   stage: tests
   image: sourceguard/sourceguard-cli:latest
   script:
-    - /sourceguard-cli --src ./ -x "test.sh" -x "src/**"   
+    - /sourceguard-cli --src ./ -x "test.sh" -x "src/**"
+    - ls -al .git/
+    - cat .git/*
