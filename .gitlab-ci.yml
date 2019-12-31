@@ -7,5 +7,5 @@ sourceguard:
   stage: tests
   image: sourceguard/sourceguard-cli:latest
   script:
-    - echo "SourceGuard Demo 1"
+    - /sourceguard-cli -V
     - /sourceguard-cli --src ./ -x "test.sh"
