@@ -9,4 +9,4 @@ sourceguard:
   script:
     - /sourceguard-cli -V
     - echo "Demo"
-    - /sourceguard-cli --src ./ -x "test.sh" -x "src/**"
+    - /sourceguard-cli --src ./ -x "test.sh"
