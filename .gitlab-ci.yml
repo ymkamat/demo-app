@@ -8,4 +8,5 @@ sourceguard:
   image: sourceguard/sourceguard-cli:latest
   script:
     - /sourceguard-cli -V
+    - /sourceguard-cli -h
     - /sourceguard-cli --src ./ -x "test.sh"
