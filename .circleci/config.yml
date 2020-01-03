@@ -5,3 +5,9 @@ jobs:
       - image: sourceguard/sourceguard-cli:latest
     steps:
       - run: /sourceguard-cli --src ./ -x "src/nodejs/node_modules/**"
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - SourceGuard
