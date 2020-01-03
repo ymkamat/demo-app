@@ -5,7 +5,7 @@ jobs:
       - image: sourceguard/sourceguard-cli:latest
     steps:
       - checkout # check out source code to working directory
-      - run: /sourceguard-cli --src ./ -x "src/nodejs/node_modules/**" -x "src/**"
+      - run: /sourceguard-cli --src ./ -x "src/nodejs/node_modules/**" -x "src/**" -x test.sh
 
 workflows:
   version: 2
