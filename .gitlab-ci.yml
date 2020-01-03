@@ -3,10 +3,10 @@ image: alpine:latest
 stages:
   - tests
   
-sourceguard:
+SourceGuard:
   stage: tests
   image: sourceguard/sourceguard-cli:latest
   script:
     - /sourceguard-cli -V
     - echo "Demo X"
-    - /sourceguard-cli --src ./ -x "test.sh"
+    - /sourceguard-cli --src ./ -x "src/nodejs/node_modules/**"
