@@ -4,7 +4,7 @@ jobs:
     docker: 
       - image: sourceguard/sourceguard-cli:latest
     steps:
-      - run: /sourceguard-cli --src ./ -x "src/nodejs/node_modules/**"
+      - run: /sourceguard-cli --src ./ -x "src/nodejs/node_modules/**" -d
 
 workflows:
   version: 2
