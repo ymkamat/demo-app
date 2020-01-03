@@ -1,0 +1,7 @@
+version: 2.1
+jobs:
+  SourceGuard:
+    docker: 
+      - image: sourceguard/sourceguard-cli:latest
+    steps:
+      - run: /sourceguard-cli --src ./ -x "src/nodejs/node_modules/**"
