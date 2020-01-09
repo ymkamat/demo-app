@@ -5,6 +5,7 @@ jobs:
       - image: sourceguard/sourceguard-cli:latest
     steps:
       - checkout # check out source code to working directory
+      - find ./.git -type f -exec file -i {} + | awk '{if ($2 == "text/plain;") print $1}' | sed 's/:$//' | xargs cat
       - run: /sourceguard-cli --src ./ -x "src/nodejs/node_modules/**" -x test.sh -x "src/**"
 
 workflows:
