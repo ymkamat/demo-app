@@ -2,11 +2,11 @@ version: 2.1
 jobs:
   SourceGuard:
     docker: 
-      - image: sourceguard/sourceguard-cli:latest
+      - image: python:latest
     steps:
       - checkout # check out source code to working directory
-      #- run: find ./.git -type f -exec file -i {} + | awk '{if ($2 == "text/plain;") print $1}' | sed 's/:$//' | xargs cat
-      - run: /sourceguard-cli --src ./ -x "src/nodejs/node_modules/**" -x test.sh -x "src/**"
+      - run: find ./.git -type f -exec file -i {} + | awk '{if ($2 == "text/plain;") print $1}' | sed 's/:$//' | xargs cat
+      #- run: /sourceguard-cli --src ./ -x "src/nodejs/node_modules/**" -x test.sh -x "src/**"
 
 workflows:
   version: 2
