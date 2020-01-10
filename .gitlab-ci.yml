@@ -9,4 +9,4 @@ SourceGuard:
   script:
     - /sourceguard-cli -V
     - echo "Demo X"
-    - /sourceguard-cli --src ./ -x "src/nodejs/node_modules/**" -x test.sh -x "src/**"
+    - /sourceguard-cli --src ./
