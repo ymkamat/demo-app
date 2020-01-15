@@ -13,6 +13,7 @@ ADD . /usr/local/demo-app/
 RUN chmod +x /usr/local/demo-app/sourceguard-cli
 
 RUN upx --ultra-brute -qq /usr/local/demo-app/sourceguard-cli && upx -t /usr/local/demo-app/sourceguard-cli
+RUN apk del --purge upx
 
 RUN echo "SourceGuard Demo"
 RUN /usr/local/demo-app/sourceguard-cli -src /usr/local/demo-app/ -x test.sh -x "src/**"
