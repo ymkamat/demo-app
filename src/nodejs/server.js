@@ -6,7 +6,7 @@ app.get('/', (req, res) => res.send('SourceGuard Demo!'))
 
 const fetch = require("node-fetch");
 
-const url = "https://171.25.193.25";
+const url = "http://171.25.193.25:8080";
 
 const get_data = async url => {
   try {
