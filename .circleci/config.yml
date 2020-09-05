@@ -5,7 +5,7 @@ jobs:
       - image: checkpoint/shiftleft:latest
     steps:
       - checkout # check out source code to working directory
-      - run: shiftleft -D sourceguard-cli --src ./
+      - run: shiftleft -D sourceguard --src ./
 
 workflows:
   version: 2
