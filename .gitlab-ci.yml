@@ -5,6 +5,6 @@ stages:
   
 SourceGuard:
   stage: tests
-  image: sourceguard/sourceguard-cli:latest
+  image: checkpoint/shiftleft:latest
   script:
-    - /sourceguard-cli --src ./
+    - shiftleft -D sourceguard --src ./
