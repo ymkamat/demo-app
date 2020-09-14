@@ -13,4 +13,4 @@ Iac-Assessment:
   stage: tests
   image: checkpoint/shiftleft:staging
   script:
-    - shiftleft -D iac-assessment -p terraform-template -r -64 -s high -t 2
+    - shiftleft -D iac-assessment -p ./terraform-template -r -64 -s critical
