@@ -8,3 +8,9 @@ SourceGuard:
   image: checkpoint/shiftleft:latest
   script:
     - shiftleft -D sourceguard --src ./
+
+Iac-Assessment:
+  stage: tests
+  image: checkpoint/shiftleft:staging
+  script:
+    - shiftleft -D iac-assessment -p terraform-template -r -64 -s high -t 3
