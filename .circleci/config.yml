@@ -12,7 +12,7 @@ jobs:
       - image: checkpoint/shiftleft:staging
     steps:
       - checkout # check out source code to working directory
-      - run: shiftleft -D iac-assessment -p ./terraform-template -r -64 -s critical
+      - run: shiftleft -D iac-assessment -p ./terraform-template -r -64
 
 workflows:
   version: 2
