@@ -29,5 +29,6 @@ DockerBuild:
     paths:
       - release
   script:
-    - docker build -t checkpoint/demo-app:latest . 
+    - docker build -t checkpoint/demo-app:latest .
+    - mkdir release 
     - docker save checkpoint/demo-app:latest -o release/demo-app-image.tar
