@@ -11,13 +11,19 @@ SourceGuard:
   stage: tests
   image: checkpoint/shiftleft:latest
   script:
-    - shiftleft -D sourceguard --src ./
+    - shiftleft -D sourceguard -s ./
 
 Iac-Assessment:
   stage: tests
   image: checkpoint/shiftleft:staging
   script:
     - shiftleft -D iac-assessment -p ./terraform-template -r -64 -s critical
+
+Image-Scan:
+  stage: tests
+  image: checkpoint/shiftleft:latest
+  script:
+    - shiftleft -D sourceguard -i release/demo-app-image.tar 
 
 DockerBuild:
   stage: build
