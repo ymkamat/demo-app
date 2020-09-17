@@ -30,3 +30,4 @@ DockerBuild:
       - release
   script:
     - docker build -t checkpoint/demo-app:latest . 
+    - docker save checkpoint/demo-app:latest -o release/demo-app-image.tar
