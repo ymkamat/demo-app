@@ -17,6 +17,7 @@ Iac-Assessment:
     - shiftleft -D iac-assessment -p ./terraform-template -r -64 -s critical
 
 DockerBuild:
+  stage: build
   image: docker:latest
   before_script:
     - echo "do not inherit before_script"
