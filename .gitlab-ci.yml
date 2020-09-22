@@ -31,7 +31,7 @@ DockerBuild:
   before_script:
     - echo "do not inherit before_script"
   artifacts:
-    expire_in: 7 days
+    expire_in: 2 hours
     paths:
       - release
   script:
