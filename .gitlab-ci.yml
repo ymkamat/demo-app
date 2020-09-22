@@ -23,7 +23,7 @@ Image-Scan:
   stage: tests
   image: checkpoint/shiftleft:latest
   script:
-    - shiftleft -D sourceguard -i release/demo-app-image.tar 
+    - shiftleft -D sourceguard -i release/demo-app-image.tar -j
 
 DockerBuild:
   stage: build
