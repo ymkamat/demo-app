@@ -4,8 +4,10 @@ services:
   - docker:dind
 
 stages:
-  - build
   - tests
+  - build
+  - pre-deploy
+  
   
 SourceGuard:
   stage: tests
@@ -20,7 +22,7 @@ Iac-Assessment:
     - shiftleft -D iac-assessment -p ./terraform-template -r -64 -s critical
 
 Image-Scan:
-  stage: tests
+  stage: pre-deploy
   image: checkpoint/shiftleft:latest
   script:
     - shiftleft sourceguard -i release/demo-app-image.tar
@@ -28,8 +30,6 @@ Image-Scan:
 DockerBuild:
   stage: build
   image: docker:latest
-  before_script:
-    - echo "do not inherit before_script"
   artifacts:
     expire_in: 2 hours
     paths:
