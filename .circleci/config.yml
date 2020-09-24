@@ -36,7 +36,7 @@ jobs:
       - setup_remote_docker
       - *attach_workspace
       - checkout
-      - run: shiftleft -D image-scan -i release/demo-app-image.tar
+      - run: shiftleft -D image-scan -i /tmp/workspace/demo-app-image.tar
   
   Image-Build:
     docker:
@@ -46,10 +46,8 @@ jobs:
       - *attach_workspace
       - checkout
       - run: docker build -t checkpoint/demo-app:$CIRCLE_BRANCH .
-      - run: mkdir release
-      - run: docker save checkpoint/demo-app:$CIRCLE_BRANCH -o release/demo-app-image.tar
-      #- store_artifacts:
-      #      path: release/demo-app-image.tar
+      - run: docker save checkpoint/demo-app:$CIRCLE_BRANCH -o /tmp/workspace/demo-app-image.tar
+      
 
 workflows:
   version: 2
