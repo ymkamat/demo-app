@@ -49,7 +49,7 @@ jobs:
       - persist_to_workspace:
           root: *workspace_root
           paths:
-            - /tmp/workspace/demo-app-image.tar
+            - demo-app-image.tar
 
 workflows:
   version: 2
