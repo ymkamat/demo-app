@@ -40,8 +40,9 @@ jobs:
   
   Image-Build:
     docker:
-      - image: circleci/cci-demo-docker-primary:0.0.2
+      - image: docker:latest
     steps:
+      - setup_remote_docker
       - *attach_workspace
       - checkout
       - run: docker build -t checkpoint/demo-app:$CIRCLE_BRANCH .
