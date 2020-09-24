@@ -1,18 +1,53 @@
 version: 2.1
+
+references:
+  
+  container_config: &container_config
+    docker:
+      - image: alpine:latest
+
+  workspace_root: &workspace_root
+    /tmp/workspace
+    
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
 jobs:
+  
   SourceGuard:
     docker: 
       - image: checkpoint/shiftleft:latest
     steps:
       - checkout # check out source code to working directory
-      - run: shiftleft -D sourceguard --src ./
+      - run: shiftleft -D sourceguard -s ./
 
   IaC-Assessment:
     docker:
       - image: checkpoint/shiftleft:staging
     steps:
-      - checkout # check out source code to working directory
+      - checkout
       - run: shiftleft -D iac-assessment -p ./terraform-template -r -64 -s critical
+
+  Image-Scan:
+    docker: 
+      - image: checkpoint/shiftleft:latest
+    steps:
+      - *attach_workspace
+      - checkout
+      - run: shiftleft -D image-scan -i release/demo-app-image.tar
+  
+  Image-Build:
+    docker:
+      - image: docker:latest
+    steps:
+      - *attach_workspace
+      - checkout
+      - run: docker build -t checkpoint/demo-app:$CIRCLE_BRANCH .
+      - run: mkdir release
+      - run: docker save checkpoint/demo-app:$CIRCLE_BRANCH -o release/demo-app-image.tar
+      #- store_artifacts:
+      #      path: release/demo-app-image.tar
 
 workflows:
   version: 2
@@ -20,3 +55,7 @@ workflows:
     jobs:
       - SourceGuard
       - IaC-Assessment
+      - Image-Build
+      - Image-Scan:
+          requires:
+            - Image-Build
