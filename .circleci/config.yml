@@ -33,8 +33,7 @@ jobs:
     docker: 
       - image: checkpoint/shiftleft:latest
     steps:
-      - setup_remote_docker:
-          reusable: true
+      - setup_remote_docker
       - *attach_workspace
       - checkout
       - run: shiftleft -D image-scan -i release/demo-app-image.tar
