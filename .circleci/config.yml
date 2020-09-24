@@ -24,7 +24,7 @@ jobs:
 
   IaC-Assessment:
     docker:
-      - image: checkpoint/shiftleft:staging
+      - image: checkpoint/shiftleft:latest
     steps:
       - checkout
       - run: shiftleft -D iac-assessment -p ./terraform-template -r -64 -s critical
@@ -33,6 +33,8 @@ jobs:
     docker: 
       - image: checkpoint/shiftleft:latest
     steps:
+      - setup_remote_docker:
+          reusable: true
       - *attach_workspace
       - checkout
       - run: shiftleft -D image-scan -i release/demo-app-image.tar
