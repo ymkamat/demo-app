@@ -40,7 +40,7 @@ jobs:
   
   Image-Build:
     docker:
-      - image: docker:latest
+      - image: circleci/cci-demo-docker-primary:0.0.2
     steps:
       - *attach_workspace
       - checkout
