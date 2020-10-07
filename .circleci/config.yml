@@ -11,12 +11,12 @@ references:
 
 jobs:
   
-  SourceGuard:
+  Code-Scan:
     docker: 
       - image: checkpoint/shiftleft:latest
     steps:
       - checkout # check out source code to working directory
-      - run: shiftleft sourceguard -s ./
+      - run: shiftleft code-scan -s ./
 
   IaC-Assessment:
     docker:
@@ -53,8 +53,8 @@ workflows:
     jobs:
       - Image-Build:
           requires:
-            - SourceGuard
-      - SourceGuard          
+            - CodeScan
+      - CodeScan
       - IaC-Assessment          
       - Image-Scan:
           requires:
