@@ -9,7 +9,7 @@ stages:
   - pre-deploy
   
   
-SourceGuard:
+Code-Scan:
   stage: tests
   image: checkpoint/shiftleft:latest
   script:
