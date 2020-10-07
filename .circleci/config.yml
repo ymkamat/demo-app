@@ -23,7 +23,7 @@ jobs:
       - image: checkpoint/shiftleft:latest
     steps:
       - checkout
-      - run: shiftleft -D iac-assessment -p ./terraform-template -r -64 -s critical
+      - run: shiftleft -D iac-assessment -p ./terraform-template -r -64 -s medium
 
   Image-Scan:
     docker: 
