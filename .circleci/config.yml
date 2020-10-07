@@ -53,8 +53,8 @@ workflows:
     jobs:
       - Image-Build:
           requires:
-            - CodeScan
-      - CodeScan
+            - Code-Scan
+      - Code-Scan
       - IaC-Assessment          
       - Image-Scan:
           requires:
