@@ -6,7 +6,6 @@ services:
 stages:
   - build
   - tests
-  - pre-deploy
   
   
 Code-Scan:
@@ -22,7 +21,7 @@ Iac-Assessment:
     - shiftleft -D iac-assessment -p ./terraform-template -r -64 -s medium
 
 Image-Scan:
-  stage: pre-deploy
+  stage: tests
   image: checkpoint/shiftleft:latest
   script:
     - shiftleft image-scan -i release/demo-app-image.tar
