@@ -7,6 +7,12 @@ stages:
   - build
   - tests
 
+Image-Scan:
+  stage: tests
+  image: checkpoint/shiftleft:latest
+  script:
+    - shiftleft image-scan -i release/demo-app-image.tar
+
 DockerBuild:
   stage: build
   image: docker:latest
