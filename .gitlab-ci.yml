@@ -12,18 +12,24 @@ Code-Scan:
   image: checkpoint/shiftleft:latest
   script:
     - shiftleft code-scan -s ./
+  only:
+    - master
 
 Iac-Assessment:
   stage: tests
   image: checkpoint/shiftleft:latest
   script:
-    - shiftleft -D iac-assessment -p ./terraform-template -r -64 -s medium
+    - shiftleft -D iac-assessment -p ./terraform-template -r -64 -s critical
+  only:
+    - master
 
 Image-Scan:
   stage: tests
   image: checkpoint/shiftleft:latest
   script:
     - shiftleft image-scan -i release/demo-app-image.tar
+  only:
+    - master
 
 DockerBuild:
   stage: build
