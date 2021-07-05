@@ -4,33 +4,20 @@ services:
   - docker:dind
 
 stages:
-  - build
+  - build 
   - tests
-
+  
 Code-Scan:
   stage: tests
-  image: checkpoint/shiftleft:latest
+  image: sourceguard/sourceguard-cli:latest
   script:
-    - shiftleft code-scan -s ./
-  only:
-    - master
-
-Iac-Assessment:
-  stage: tests
-  image: checkpoint/shiftleft:latest
-  script:
-    #- shiftleft -D iac-assessment -p ./terraform-template -r -64 -s critical
-    - shiftleft -D iac-assessment -p ./terraform-template -r -64
-  only:
-    - master
+    - /sourceguard-cli -s ./
 
 Image-Scan:
   stage: tests
-  image: checkpoint/shiftleft:latest
+  image: sourceguard/sourceguard-cli:latest
   script:
-    - shiftleft image-scan -i release/demo-app-image.tar
-  only:
-    - master
+    - /sourceguard-cli -i release/demo-app-image.tar
 
 DockerBuild:
   stage: build
@@ -40,6 +27,6 @@ DockerBuild:
     paths:
       - release
   script:
-    - docker build -t checkpoint/demo-app:latest .
+    - docker build -t cpx/demo-app:latest .
     - mkdir release 
-    - docker save checkpoint/demo-app:latest -o release/demo-app-image.tar
+    - docker save cpx/demo-app:latest -o release/demo-app-image.tar
