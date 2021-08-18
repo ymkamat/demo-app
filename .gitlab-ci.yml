@@ -1,5 +1,8 @@
 image: alpine:latest
 
+variables:
+  GIT_DEPTH: 1000
+
 services:
   - docker:dind
 
