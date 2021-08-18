@@ -11,7 +11,7 @@ Code-Scan:
   stage: tests
   image: sourceguard/sourceguard-cli:latest
   script:
-    - /sourceguard-cli -s ./ -nc -D -bd 10000
+    - /sourceguard-cli -s . -nc -D -bd 10000
 
 Image-Scan:
   stage: tests
